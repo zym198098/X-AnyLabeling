@@ -1,0 +1,6 @@
+type: threshold_jzw
+name: threshold_jzw_Dj
+display_name: threshold_jzw_Dj
+model_path: ../models/segformer.onnx
+classes:
+  - jzw

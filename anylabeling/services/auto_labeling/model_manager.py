@@ -1390,6 +1390,48 @@ class ModelManager(QObject):
                     )
                 )
                 return
+        elif model_config["type"] == "seg_segformer":
+            from .segformer import SegFormer
+            try:
+                model_config["model"] = SegFormer(
+                    model_config, on_message=self.new_model_status.emit
+                )
+                self.auto_segmentation_model_unselected.emit()
+            except Exception as e:  # noqa
+                self.new_model_status.emit(
+                    self.tr(
+                        "Error in loading model: {error_message}".format(
+                            error_message=str(e)
+                        )
+                    )
+                )
+                print(
+                    "Error in loading model: {error_message}".format(
+                        error_message=str(e)
+                    )
+                )
+                return
+        elif model_config["type"] == "threshold_jzw":
+            from .Threshold_jzw import Threshold_jzw
+            try:
+                model_config["model"] = Threshold_jzw(
+                    model_config, on_message=self.new_model_status.emit
+                )
+                self.auto_segmentation_model_unselected.emit()
+            except Exception as e:  # noqa
+                self.new_model_status.emit(
+                    self.tr(
+                        "Error in loading model: {error_message}".format(
+                            error_message=str(e)
+                        )
+                    )
+                )
+                print(
+                    "Error in loading model: {error_message}".format(
+                        error_message=str(e)
+                    )
+                )
+                return
         else:
             raise Exception(f"Unknown model type: {model_config['type']}")
 

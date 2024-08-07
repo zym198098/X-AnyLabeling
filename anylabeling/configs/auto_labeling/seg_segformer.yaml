@@ -1,0 +1,7 @@
+type: seg_segformer
+name: segformer-r20240409
+display_name: segformer
+model_path: ../models/segformer.onnx
+classes:
+  - a
+  - jzw

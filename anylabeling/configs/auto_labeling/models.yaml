@@ -250,3 +250,7 @@
   config_file: ":/yolox_l_dwpose_ucoco.yaml"
 - model_name: "yolox_s-r20230520"
   config_file: ":/yolox_s.yaml"
+- model_name: "segformer-r20240409"#自定义模型segformer
+  config_file: ":/seg_segformer.yaml"
+- model_name: "threshold_jzw"#自定义模型自定义阈值
+  config_file: ":/threshold_jzw.yaml"
